@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Code Access Page</title>
+<style>
+  body { font-family: Arial, sans-serif; text-align: center; padding-top: 50px; background-color: #f0f0f0; }
+  /* Changed input to a textarea for the long binary code */
+  textarea {
+    padding: 10px;
+    font-size: 16px;
+    width: 80%;
+    max-width: 600px;
+    height: 80px;
+    box-sizing: border-box; /* Ensures padding doesn't add to width */
+  }
+  button { padding: 10px 20px; font-size: 16px; margin-top: 10px; cursor: pointer; }
+  #r {
+    margin-top: 20px;
+    font-weight: bold;
+    word-wrap: break-word; /* Wraps long words */
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    text-align: left; /* Aligns text to the left for readability */
+    white-space: pre-wrap; /* Preserves line breaks and spaces */
+    font-family: 'Courier New', Courier, monospace;
+  }
+</style>
+</head>
+<body>
+<h1>Enter Access Code</h1>
+<!-- Using a textarea is better for multi-line or long inputs -->
+<textarea id="a" placeholder="Enter code"></textarea>
+<br>
+<button onclick="checkCode()">Submit</button>
+<div id="r"></div>
+<script>
+(function(){
+  // Using an object to store multiple valid codes and their messages.
+  // Template literals (backticks ``) are used to make the multi-line entry easier to read.
+  const codeEntries = {
+    "41.216.147.114": "01110100 01110010 01111001 00100000 01100001 01100111 01100001 01101001 01101110 00100000 01101001 01101110 00100000 01100010 01101001 01101110 01100001 01110010 01111001",
+    "00110100 00110001 00101110 00110010 00110001 00110110 00101110 00110001 00110100 00110111 00101110 00110001 00110001 00110100":
+`egiww kverxih
+
+irxvc 1: xli jmvwx xmqi m wea mx,m aew tpecmrk epsri mr xli wivziv kexlivmrk assh. ex rmklx,m wea mx jpsexmrk efszi xli aexiv mr xli lsvmdsr. m vigsvhih mx erh lmh mx mr xli glerrip jsv hsgyqirxexmsr. mzi ksxxe xipp nywxmr.
+
+irxvc 2:m aew qmrmrk,alir m jipp mrxs e gezi. m airx hiitiv xs psso jsv wxyjj,erh m wea,mr xli gsvriv sj qc ici,e aimvh,almxi jmkyvi. mx aew wxerhmrk wxmpp,aexglmrk. m ver syx sj xli gezi,fyx alir m ksx xs xli xst erh pssoih fego,rsxlmrk aew xlivi. m airx fego hsar cix,xlivi aew rsxlmrk. m xsph nywxmr,fyx li asrx fipmizi qi. m waiev mq rsx gvedc.`
+  };
+
+  const resultDiv = document.getElementById("r");
+
+  // This function is called when the button is clicked.
+  window.checkCode = function(){
+    // Using a textarea, so we check its value.
+    const userInput = document.getElementById("a").value.trim();
+
+    // Check if the user's input matches a key in our codeEntries object.
+    if (codeEntries[userInput]) {
+      // If a match is found, display the corresponding message.
+      resultDiv.textContent = codeEntries[userInput];
+    } else {
+      // Otherwise, display an invalid code message.
+      resultDiv.textContent = "Invalid code.";
+    }
+  }
+})();
+</script>
+</body>
+</html>
